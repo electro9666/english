@@ -1,0 +1,3 @@
+var q="take it out on me";
+var list=[{"videoId":"hm7kAKZwCz0","startTime":1056,"endTime":1064,"sentence":" them feel that way and have to <font color='red'>take it out on me</font> I think that that's a whole","seq":0,"img":"https://i.ytimg.com/vi/hm7kAKZwCz0/default.jpg"},{"videoId":"wwUGKD3770I","startTime":2303,"endTime":2309,"sentence":" will go haywire <font color='red'>take it out on me</font> that's","seq":1,"img":"https://i.ytimg.com/vi/wwUGKD3770I/default.jpg"}];
+includeJs(youtubeapi);

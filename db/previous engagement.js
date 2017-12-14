@@ -1,0 +1,3 @@
+var q="previous engagement";
+var list=[{"videoId":"moM0t1Y5ZAY","startTime":82,"endTime":88,"sentence":" present had a <font color='red'>previous engagement</font> this","seq":0,"img":"https://i.ytimg.com/vi/moM0t1Y5ZAY/default.jpg"},{"videoId":"p5I-wgi-KDc","startTime":217,"endTime":223,"sentence":" <font color='red'>previous engagement</font> well you know it's","seq":1,"img":"https://i.ytimg.com/vi/p5I-wgi-KDc/default.jpg"},{"videoId":"KavSH1xTFG4","startTime":213,"endTime":219,"sentence":" from those <font color='red'>previous engagement</font> well you","seq":2,"img":"https://i.ytimg.com/vi/KavSH1xTFG4/default.jpg"}];
+includeJs(youtubeapi);

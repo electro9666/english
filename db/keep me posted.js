@@ -1,0 +1,3 @@
+var q="keep me posted";
+var list=[{"videoId":"TfQNw34tsPQ","startTime":1502,"endTime":1510,"sentence":" in that way yeah all right <font color='red'>keep me posted</font> on the next big impact yes you're","seq":0,"img":"https://i.ytimg.com/vi/TfQNw34tsPQ/default.jpg"},{"videoId":"wcHHipt4L7U","startTime":109,"endTime":115,"sentence":" And she said, okay, just <font color='red'>keep me posted</font>.","seq":1,"img":"https://i.ytimg.com/vi/wcHHipt4L7U/default.jpg"},{"videoId":"2k9n38Zha6k","startTime":433,"endTime":441,"sentence":" Is that okay? Of course just <font color='red'>keep me posted</font> and be home before midnight","seq":2,"img":"https://i.ytimg.com/vi/2k9n38Zha6k/default.jpg"}];
+includeJs(youtubeapi);

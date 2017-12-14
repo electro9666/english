@@ -1,0 +1,3 @@
+var q="It's not gonna kill you";
+var list=[{"videoId":"hVCYKhpRYZk","startTime":21,"endTime":28,"sentence":" <font color='red'>it's not gonna kill you</font> it's it's no","seq":0,"img":"https://i.ytimg.com/vi/hVCYKhpRYZk/default.jpg"},{"videoId":"qwVXYHufVj0","startTime":463,"endTime":471,"sentence":" first I'm gonna Kate you if you get <font color='red'>it's not gonna kill you</font>","seq":1,"img":"https://i.ytimg.com/vi/qwVXYHufVj0/default.jpg"}];
+includeJs(youtubeapi);

@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!doctype html>
+<html lang="ko-kr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>English</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/kfonts2.css" rel="stylesheet">
+    <style>
+/*         body { padding-top: 20px; } */
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+	<link rel="stylesheet" href="resources/icon.css">
+	<link rel="stylesheet" href="resources/default.min.css">
+	<link rel="stylesheet" href="resources/tomorrow.min.css">
+	<style>
+/* 		input{ */
+/* 			height:28px; */
+/* 		} */
+		img {
+			width:50px;
+		}	
+	</style>
+  </head>
+<body>
+<div class="container">  
+
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+<!--         <a class="navbar-brand" href="#">LOGO </a> -->
+      </div>
+     
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="javascript:void(0);" id="headerId">English</a></li>
+          <li class=""><a href="javascript:void(0);" id="headerSentenceId"></a></li>
+<!--           <li><a href="#">메뉴2</a></li> -->
+<!--           <li><a href="#">메뉴3</a></li> -->
+         <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">드롭다운 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">서브메뉴 1</a></li>
+              <li><a href="#">서브메뉴 2</a></li>
+              <li><a href="#">서브메뉴 3</a></li>
+            </ul>
+          </li> -->
+        </ul>
+		<!--
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="검색">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+		-->
+      </div><!-- /.navbar-collapse -->
+    </nav>
+    <div id="mainContents" style="display:none;">
+		<div id="mainControl">
+			<span>
+				<form role="form" class="form-inline">
+					<div class="form-group">
+						<a class="btn btn-info" onclick="goPrev(-1);"><span class="glyphicon glyphicon-step-backward"></span></a>
+					</div>
+					<div class="form-group">
+						<a class="btn btn-info" onclick="goPrev(1);"><span class="glyphicon glyphicon-step-forward"></span></a>
+					</div>		
+					<span style="margin-left:50px;">리스트 각</span>
+					<div class="form-group">
+						<input type="text" id="repeatMax" value="1" style="width:40px;" onchange="repeatMaxUpdate(this);"/>
+					</div>
+					<div class="form-group">
+						<a id="btn0" class="btn btn-primary" onclick="makeLoop(this);">회 반복</a>
+					</div>
+					<div class="form-group">
+					/
+					</div>
+					<div class="form-group">
+						<a id="btn1" class="btn btn-default" onclick="makeLoop1(this);">한개 무한 반복</a>
+					</div>
+					<div class="form-group">
+			 			<span id="repeatCount">(0회 반복 중)</span>
+			 		</div>
+			 		<div class="form-group" style="margin-left:50px;">
+						speed : <select id="speed" class="form-control" onchange="speedUpdate(this);">
+							<option>0.25</option>
+							<option>0.5</option>
+							<option>0.75</option>
+							<option selected="selected">1</option>
+							<option>1.25</option>
+							<option>1.5</option>
+							<option>2</option>
+						</select>
+					</div>				 		
+					<div class="form-group" style="margin-left:50px;">
+						<span>공통 시간 오차 : 
+						앞 <input id="startMargin" type="text" style="width:50px;" value="-1" onchange="marginUpdate('start', this);"/>  
+						뒤 <input id="endMargin" type="text" style="width:50px;" value="+1" onchange="marginUpdate('end', this);"/></span>
+					</div>					
+			 	</form>
+<!-- 				<button onclick="changeList(this);">list</button> -->
+			</span>
+			<hr>
+			<span>
+				<form role="form" class="form-inline">
+					<div id="title"><span style='height:25px;font-size:20px;overflow-y:hidden;'>Title</span></div>
+					<div>
+						<div class="form-group">
+							<input id="isRepeat" type="checkbox" class="form-control" checked onchange="repeatFlagUpdate(this);"/>
+							<label for="isRepeat">구간반복</label>
+						</div>
+						<div class="form-group" style="margin-left:20px;">
+					        <span id="startTimeFormat" style="width:30px;display:inline-block;">0:00</span>
+						</div>
+						<div class="form-group">
+					        <input id="startTime" type="text" style="width:60px;" value="0" onchange="timeChange2('start', this);"/>
+						</div>
+						<div class="form-group">
+				            <span style="position:relative;">
+				            	<a style="font-size:1em;position:absolute;top:-18px;" onclick="timeChange('start', 1);return false;">▲</a>
+				            	<a style="font-size:1em;position:absolute;top:-4px;" onclick="timeChange('start', -1);return false;">▼</a>
+				            </span>
+						</div>
+						<div class="form-group">
+					        <span style="margin-left:20px;">&nbsp;~&nbsp;</span> 
+						</div>
+						<div class="form-group">
+					        <span id="endTimeFormat" style="width:30px;display:inline-block;">0:00</span>
+						</div>
+						<div class="form-group">
+					        <input id="endTime" type="text" style="width:60px;" value="0" onchange="timeChange2('end', this);"/>
+						</div>
+						<div class="form-group">
+				            <span style="position:relative;">
+				            	<a style="font-size:1em;position:absolute;top:-18px;" onclick="timeChange('end', 1);return false;">▲</a>
+				            	<a style="font-size:1em;position:absolute;top:-4px;" onclick="timeChange('end', -1);return false;">▼</a>
+				            </span>
+						</div>
+						<div class="form-group" style="margin-left:100px;">
+							<span id="currentTimeFormat" style="width:100px;display:inline-block;">0:00</span>&nbsp;&nbsp;&nbsp;
+						</div>
+					</div>
+				</form>
+				<div id="sentence">Sentence</div>
+			</span>			
+		</div>
+		<div id="mainDiv">
+			<div style="float:left;width:580px;height:510px;">
+	            <div style="display:relative;">
+		            <div id="parentIframe0" style="position:absolute;">
+						<div id="youtubeIframe0"></div>
+		            </div>
+<!--          			<div id="parentIframe1" style="position:absolute;top:300px;left:700px;"> -->
+		            <div id="parentIframe1" style="position:absolute;">
+						<div id="youtubeIframe1"></div>
+		            </div>
+		            <div id="retry" style="position:absolute;z-index:20;width:60px;height:20px;background-color:red;color:white;display:none">
+		            </div>
+				</div>
+			</div>
+		</div>
+		<script id="player_template" type="text/x-handlebars-template">
+		<div class="videoClass" seq="{{seq}}" id="video{{seq}}" videoId="{{videoId}}" startTime="{{startTime}}" endTime="{{endTime2}}" sentence="{{sentence}}" group="{{group}}" onclick="clickVideo(this);" style="float:left;margin:1px;padding:3px;">
+			<img id="img{{seq}}" src="{{imgUrl}}" style="width:50px;height:38px;" />
+		</div>
+		</script>
+    </div>
+    <div id="mainContents2" style="display:none;">
+    <h3>개요</h3>
+    <p>Youtube script 내에서, 영어 문장들을 검색하여 문장이 사용되는 상황을 영상으로 학습한다.</p>
+    <p>도서 '영어회화 100일의 기적' 의 내용을 기반으로 한다.</p>
+    </div>
+
+</div> <!-- container 끝 -->
+	<div style="position:absolute;top:100px;left:10px;background-color:rgba(201, 201, 201,.5);border-radius: 10px;padding: 10px;width:300px;">
+		<div id="leftSide">
+		</div>
+	</div>
+	
+	<script id="player_template2" type="text/x-handlebars-template">
+        <ul>
+			{{#each this}}
+        	<li>{{seq}}
+        		<ul>
+        			{{#each list}}
+        	        <li><a href="?f={{this}}">{{this}}</a></li>
+					{{/each}}
+        		</ul>
+			</li>
+			{{/each}}
+        </ul>
+	</script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+<!-- 	<script src="resources/jquery.min.js"></script> -->
+	<script src="resources/highlight.min.js"></script>
+	<script src="script3.js"></script>
+<!-- 	<script src="resources/iframe_api.js"></script> -->
+	<script src="resources/handlebars-v4.0.10.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script>
+	function includeJs(path){
+		var js = document.createElement("script");
+		js.type = "text/javascript";
+		js.src = path;
+		document.body.appendChild(js);
+	}	
+	var youtubeapi = "resources/iframe_api.js";
+	$(document).ready(function(){
+		// left side
+		Handlebars.registerHelper("calc", function(value) {
+			if(value != null && value != ""){
+				value = value.replace(/\s/g, "_");
+			}
+		    return value;
+		});
+		var sentenceList = 
+			[
+				{seq:1, list:["look who's here","a small world","how have you been","changed a bit","say hello to","catch you later","keep in touch"]}
+				,{seq:2, list:["you shouldn't have","give you a ride","don't bother","what friends are for","something smells fishy","just be yourself"]}
+				,{seq:3, list:["what's the weather","I get the feeling","call off","slipped my mind","don't tell me","behind my back","go with the flow"]}
+				,{seq:4, list:["I feel like going","previous engagement","nothing beats","come to think of it","you might as well","postpone it"]}
+				,{seq:5, list:["I pulled some strings","go easy on it","It's not gonna kill you","don't forget to"]}
+				,{seq:6, list:["where were we","look on the bright side","keep me posted"]}
+				,{seq:7, list:["make a reservation","it makes no difference","what do you mean","first come first served"]}
+				,{seq:8, list:["give me a hand","make excuses","take it out on me","all you have to do is"]}
+				,{seq:9, list:["want to come along","looking forward to","wouldn't miss it"]}
+				,{seq:10, list:["get along with","spit it out","getting out of hand","in a bad mood"]}
+				]
+
+
+
+		var source = $("#player_template2").html(); 
+		var template = Handlebars.compile(source);
+		var html = template(sentenceList);
+		$("#leftSide").append(html);
+		
+		var ls = location.search;
+		if(ls != null && ls != ""){
+			ls = decodeURIComponent(ls);
+			var i = ls.indexOf("?f=");
+			if(i != -1){
+				var f = ls.substring(i+3);
+
+				//1
+				includeJs("db/" + f + ".js");
+				$("#mainContents").show();
+				$("#mainContents2").hide();
+				
+				$("#leftSide li a").each(function(i, d){
+					if($(this).html() == f){
+						$(this).css("text-decoration", "underline");
+						$(this).addClass("active");
+					}
+				});
+			}
+		}else{
+// 			alert("invalid url");
+			$("#mainContents").hide();
+			$("#mainContents2").show();
+		}
+	});
+	</script>    
+	<div>
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+		var disqus_config = function () {
+		this.page.url = 'https://electro9666.github.io/english';
+		this.page.identifier = 'english';
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://electro9666.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	</div>
+</body>
+</html>

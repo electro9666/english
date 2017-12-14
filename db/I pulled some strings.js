@@ -1,0 +1,3 @@
+var q="I pulled some strings";
+var list=[{"videoId":"n7jdAhTEPMY","startTime":80,"endTime":88,"sentence":" you're excited because well <font color='red'>I pulled some strings</font> to see what Henry had to","seq":0,"img":"https://i.ytimg.com/vi/n7jdAhTEPMY/default.jpg"},{"videoId":"08SO5J5Nq4Q","startTime":16,"endTime":22,"sentence":" <font color='red'>I PULLED SOME STRINGS</font>,","seq":1,"img":"https://i.ytimg.com/vi/08SO5J5Nq4Q/default.jpg"}];
+includeJs(youtubeapi);
