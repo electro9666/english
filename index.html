@@ -31,6 +31,35 @@
 		img {
 			width:50px;
 		}	
+		.li2{
+			overflow:hidden;
+		}
+		
+		@media (max-width: 995px) {
+		  #leftSideUl1 {
+		    display: none;
+		  }
+		  #leftSideUl2 {
+		    display: block;
+		  }		  
+		}
+		@media (min-width: 996px) {
+		  #leftSideUl1 {
+		    display: block;
+		  }
+		  #leftSideUl2 {
+		    display: none;
+		  }
+		}
+		
+		.mygroup{
+			display:inline-block;
+			border-radius:10px;
+/* 			background-color:gray; */
+			border:1px solid #BDBDBD;
+			padding:10px;
+		}
+		
 	</style>
   </head>
 <body>
@@ -53,175 +82,125 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="javascript:void(0);" id="headerId">English</a></li>
           <li class=""><a href="javascript:void(0);" id="headerSentenceId"></a></li>
-<!--           <li><a href="#">메뉴2</a></li> -->
-<!--           <li><a href="#">메뉴3</a></li> -->
-         <!-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">드롭다운 <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">서브메뉴 1</a></li>
-              <li><a href="#">서브메뉴 2</a></li>
-              <li><a href="#">서브메뉴 3</a></li>
-            </ul>
-          </li> -->
         </ul>
-		<!--
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="검색">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-		-->
       </div><!-- /.navbar-collapse -->
     </nav>
-    <div id="mainContents" style="display:none;">
-		<div id="mainControl">
-			<span>
-				<form role="form" class="form-inline">
-					<div class="form-group">
-						<a class="btn btn-info" onclick="goPrev(-1);"><span class="glyphicon glyphicon-step-backward"></span></a>
+    
+    <div class="row">
+		<div class="col-md-2" id="leftSideUl2">
+			<a class="btn btn-info btn-xs" onclick="toggleLeftSide(this);" v="1">좌측메뉴 열기</a>
+			<br>
+			<br>
+		</div>    
+		<div class="col-md-2" id="leftSideUl1">
+			<ul class="nav" id="leftSide" style="width:200px;">
+<!-- 				<li>menu 1</li>
+				<li>menu 2</li>
+				<li>menu 3</li>
+				<li>menu 4</li> -->
+			</ul>
+		</div>
+		<div class="col-md-10">
+		    <div id="mainContents" style="display:none;margin-left:20px;">
+				<div id="mainControl">
+					<div class="row">
+						<div class="col-xs-12">
+							<span class="mygroup">
+								<a class="btn btn-info" onclick="goPrev(-1);"><span class="glyphicon glyphicon-step-backward"></span></a>
+								<a class="btn btn-info" onclick="goPrev(1);"><span class="glyphicon glyphicon-step-forward"></span></a>
+							</span>
+							<span class="mygroup">
+								<input type="text" id="repeatMax" value="1" style="width:40px;" onchange="repeatMaxUpdate(this);"/>
+								<div class="btn-group">
+									<button id="btn0" type="button" class="btn btn-primary btn-sm" onclick="makeLoop(this);">리스트 각 1회 반복</button>
+									<button id="btn1" type="button" class="btn btn-default btn-sm" onclick="makeLoop1(this);">한개 무한 반복</button>
+								</div>							
+								<span id="repeatCount"></span>
+							</span>
+							<span class="mygroup">
+								<label>speed :</label>
+								<select id="speed" onchange="speedUpdate(this);" style="width:50px;">
+									<option>0.25</option>
+									<option>0.5</option>
+									<option>0.75</option>
+									<option selected="selected">1</option>
+									<option>1.25</option>
+									<option>1.5</option>
+									<option>2</option>
+								</select>							
+							</span>
+							<span class="mygroup">
+								<label>시간 오차 :</label> 
+								앞 <input id="startMargin" type="text" style="width:50px;" value="-1" onchange="marginUpdate('start', this);"/>  
+								뒤 <input id="endMargin" type="text" style="width:50px;" value="+1" onchange="marginUpdate('end', this);"/></span>
+							</span>
+						</div>
 					</div>
-					<div class="form-group">
-						<a class="btn btn-info" onclick="goPrev(1);"><span class="glyphicon glyphicon-step-forward"></span></a>
-					</div>		
-					<span style="margin-left:50px;">리스트 각</span>
-					<div class="form-group">
-						<input type="text" id="repeatMax" value="1" style="width:40px;" onchange="repeatMaxUpdate(this);"/>
+					<hr>
+					<div class="row">
+						<div class="col-xs-12">
+							<div id="title"><span style='height:25px;font-size:20px;overflow-y:hidden;'>Title</span></div>
+						</div>
 					</div>
-					<div class="form-group">
-						<a id="btn0" class="btn btn-primary" onclick="makeLoop(this);">회 반복</a>
-					</div>
-					<div class="form-group">
-					/
-					</div>
-					<div class="form-group">
-						<a id="btn1" class="btn btn-default" onclick="makeLoop1(this);">한개 무한 반복</a>
-					</div>
-					<div class="form-group">
-			 			<span id="repeatCount">(0회 반복 중)</span>
-			 		</div>
-			 		<div class="form-group" style="margin-left:50px;">
-						speed : <select id="speed" class="form-control" onchange="speedUpdate(this);">
-							<option>0.25</option>
-							<option>0.5</option>
-							<option>0.75</option>
-							<option selected="selected">1</option>
-							<option>1.25</option>
-							<option>1.5</option>
-							<option>2</option>
-						</select>
-					</div>				 		
-					<div class="form-group" style="margin-left:50px;">
-						<span>공통 시간 오차 : 
-						앞 <input id="startMargin" type="text" style="width:50px;" value="-1" onchange="marginUpdate('start', this);"/>  
-						뒤 <input id="endMargin" type="text" style="width:50px;" value="+1" onchange="marginUpdate('end', this);"/></span>
-					</div>					
-			 	</form>
-<!-- 				<button onclick="changeList(this);">list</button> -->
-			</span>
-			<hr>
-			<span>
-				<form role="form" class="form-inline">
-					<div id="title"><span style='height:25px;font-size:20px;overflow-y:hidden;'>Title</span></div>
-					<div>
-						<div class="form-group">
-							<input id="isRepeat" type="checkbox" class="form-control" checked onchange="repeatFlagUpdate(this);"/>
+					<div class="row">
+						<div class="col-xs-12">
+							<input id="isRepeat" type="checkbox" checked onchange="repeatFlagUpdate(this);" style="width:20px;"/>
 							<label for="isRepeat">구간반복</label>
-						</div>
-						<div class="form-group" style="margin-left:20px;">
-					        <span id="startTimeFormat" style="width:30px;display:inline-block;">0:00</span>
-						</div>
-						<div class="form-group">
-					        <input id="startTime" type="text" style="width:60px;" value="0" onchange="timeChange2('start', this);"/>
-						</div>
-						<div class="form-group">
-				            <span style="position:relative;">
-				            	<a style="font-size:1em;position:absolute;top:-18px;" onclick="timeChange('start', 1);return false;">▲</a>
-				            	<a style="font-size:1em;position:absolute;top:-4px;" onclick="timeChange('start', -1);return false;">▼</a>
+							<span style="margin-left:20px;"></span>
+							<span class="mygroup">
+								<span id="startTimeFormat" style="width:30px;display:inline-block;">0:00</span>
+								<input id="startTime" type="text" style="width:60px;" value="0" onchange="timeChange2('start', this);"/>
+					            <span style="position:relative;display:inline-block;width:20px;">
+					            	<a style="font-size:1em;position:absolute;top:-25px;" onclick="timeChange('start', 1);return false;">▲</a>
+					            	<a style="font-size:1em;position:absolute;top:-10px;" onclick="timeChange('start', -1);return false;">▼</a>
+					            </span>
+					        </span>
+				            <span>&nbsp;~&nbsp;</span>
+				            <span class="mygroup">
+					            <span id="endTimeFormat" style="width:30px;display:inline-block;">0:00</span>
+					            <input id="endTime" type="text" style="width:60px;" value="0" onchange="timeChange2('end', this);"/>		
+					            <span style="position:relative;display:inline-block;width:20px;">
+					            	<a style="font-size:1em;position:absolute;top:-25px;" onclick="timeChange('end', 1);return false;">▲</a>
+					            	<a style="font-size:1em;position:absolute;top:-10px;" onclick="timeChange('end', -1);return false;">▼</a>
+					            </span>
+					        </span>	
+				            <span style="margin-left:50px;"></span>
+				            <span class="mygroup">
+				            	<span id="currentTimeFormat" style="width:100px;display:inline-block;">0:00</span>&nbsp;&nbsp;&nbsp;
 				            </span>
-						</div>
-						<div class="form-group">
-					        <span style="margin-left:20px;">&nbsp;~&nbsp;</span> 
-						</div>
-						<div class="form-group">
-					        <span id="endTimeFormat" style="width:30px;display:inline-block;">0:00</span>
-						</div>
-						<div class="form-group">
-					        <input id="endTime" type="text" style="width:60px;" value="0" onchange="timeChange2('end', this);"/>
-						</div>
-						<div class="form-group">
-				            <span style="position:relative;">
-				            	<a style="font-size:1em;position:absolute;top:-18px;" onclick="timeChange('end', 1);return false;">▲</a>
-				            	<a style="font-size:1em;position:absolute;top:-4px;" onclick="timeChange('end', -1);return false;">▼</a>
-				            </span>
-						</div>
-						<div class="form-group" style="margin-left:100px;">
-							<span id="currentTimeFormat" style="width:100px;display:inline-block;">0:00</span>&nbsp;&nbsp;&nbsp;
 						</div>
 					</div>
-				</form>
-				<div id="sentence">Sentence</div>
-			</span>			
-		</div>
-		<div id="mainDiv">
-			<div style="float:left;width:580px;height:510px;">
-	            <div style="display:relative;">
-		            <div id="parentIframe0" style="position:absolute;">
-						<div id="youtubeIframe0"></div>
-		            </div>
-<!--          			<div id="parentIframe1" style="position:absolute;top:300px;left:700px;"> -->
-		            <div id="parentIframe1" style="position:absolute;">
-						<div id="youtubeIframe1"></div>
-		            </div>
-		            <div id="retry" style="position:absolute;z-index:20;width:60px;height:20px;background-color:red;color:white;display:none">
-		            </div>
 				</div>
-			</div>
-		</div>
-		<script id="player_template" type="text/x-handlebars-template">
+				<hr>
+				<div id="sentence">Sentence</div>
+				<div id="mainDiv">
+					<div style="float:left;width:480px;height:410px;">
+			            <div style="display:relative;">
+				            <div id="parentIframe0" style="position:absolute;">
+								<div id="youtubeIframe0"></div>
+				            </div>
+		<!--          			<div id="parentIframe1" style="position:absolute;top:300px;left:700px;"> -->
+				            <div id="parentIframe1" style="position:absolute;">
+								<div id="youtubeIframe1"></div>
+				            </div>
+				            <div id="retry" style="position:absolute;z-index:20;width:60px;height:20px;background-color:red;color:white;display:none">
+				            </div>
+						</div>
+					</div>
+				</div>
+				<script id="player_template" type="text/x-handlebars-template">
 		<div class="videoClass" seq="{{seq}}" id="video{{seq}}" videoId="{{videoId}}" startTime="{{startTime}}" endTime="{{endTime2}}" sentence="{{sentence}}" group="{{group}}" onclick="clickVideo(this);" style="float:left;margin:1px;padding:3px;">
 			<img id="img{{seq}}" src="{{imgUrl}}" style="width:50px;height:38px;" />
 		</div>
 		</script>
-    </div>
-    <div id="mainContents2" style="display:none;">
-	    <h3>개요</h3>
-	    <p>Youtube script 내에서, 영어 문장들을 검색하여 문장이 사용되는 상황을 영상으로 학습한다.</p>
-	    <p>도서 '영어회화 100일의 기적' 의 내용을 기반으로 한다.</p>
-    </div>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+		    </div>
+		    <div id="mainContents2" style="display:none;">
+			    <h3>개요</h3>
+			    <p>Youtube script 내에서, 영어 문장들을 검색하여 문장이 사용되는 상황을 영상으로 학습한다.</p>
+			    <p>도서 '영어회화 100일의 기적' 의 내용을 기반으로 한다.</p>
+		    </div>
+		</div>
+	</div>
 	<br>
 	<div>
 		<div id="disqus_thread"></div>
@@ -246,23 +225,16 @@
 		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	</div>
 </div> <!-- container 끝 -->
-	<div style="position:absolute;top:100px;left:10px;background-color:rgba(201, 201, 201,.5);border-radius: 10px;padding: 10px;width:300px;">
-		<div id="leftSide">
-		</div>
-	</div>
-	
 	<script id="player_template2" type="text/x-handlebars-template">
-        <ul>
 			{{#each this}}
-        	<li>{{seq}}
-        		<ul>
-        			{{#each list}}
-        	        <li><a href="?f={{this}}">{{this}}</a></li>
-					{{/each}}
-        		</ul>
-			</li>
+            	{{#each list}}
+					{{#iff @../index @index}}
+                		<li class='li2'><span>{{plus @../index}} <a href="?f={{this}}">{{this}}</a></span></li>
+					{{else}}
+						<li class='li2'>- <span><a href="?f={{this}}">{{this}}</a></span></li>
+					{{/iff}}
+            	{{/each}}
 			{{/each}}
-        </ul>
 	</script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
