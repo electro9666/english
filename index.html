@@ -206,7 +206,7 @@
 	<li>youtube api 이용 : https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=[리스트ID]&key=[KEY발급]&maxResults=50</li>
 	<li>json결과를 파싱한다.</li>
 	<li>목록이 50개를 넘을 경우(json결과에서 알 수 있다.) 51번째부터 다시 검색한다. (loop)</li>
-	<li>동영상 목록을 *.txt 로 보관한다. (현재 약 70여개)</li>
+	<li>리스트ID에 해당하는 동영상 목록을 txt로 보관한다. (현재 약 70개 txt)</li>
 	</ul>
 </li>
 <li>동영상 목록 txt파일을 읽어들여서, 동영상 각각의 자막(사용자 입력, 자동생성)을 검색한다. (http://downsub.com 크롤링)
@@ -229,10 +229,10 @@
 <li>화면
 	<ul>
 	<li>미리 검색하여 준비된 문장 리스트(좌측)를 선택시 해당하는 js파일을 읽어들여서 출력</li>
-	<li>youtube player는 2개를 겹쳐놓아서, 동영상 이동시  끊김이 없도록 함</li>
+	<li>youtube player는 2개를 화면상 겹쳐놓고 api control을 통하여, 동영상 연속 재생시 끊김이 없도록 함</li>
 	</ul> 
 </li> 
-</ol>	
+</ol>			    
 
 		    </div>
 		</div>
