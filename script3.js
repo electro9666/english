@@ -30,19 +30,19 @@
 		Handlebars.registerHelper('plus', function(count) {
 			return count+1;
 		});		
-//		var sentenceList = 
-//			[
-//				{seq:1, list:["look who's here","a small world","how have you been","changed a bit","say hello to","catch you later","keep in touch"]}
-//				,{seq:2, list:["you shouldn't have","give you a ride","don't bother","what friends are for","something smells fishy","just be yourself"]}
-//				,{seq:3, list:["what's the weather","I get the feeling","call off","slipped my mind","don't tell me","behind my back","go with the flow"]}
-//				,{seq:4, list:["I feel like going","previous engagement","nothing beats","come to think of it","you might as well","postpone it"]}
-//				,{seq:5, list:["I pulled some strings","go easy on it","It's not gonna kill you","don't forget to"]}
-//				,{seq:6, list:["where were we","look on the bright side","keep me posted"]}
-//				,{seq:7, list:["make a reservation","it makes no difference","what do you mean"]}
-//				,{seq:8, list:["give me a hand","make excuses","take it out on me","all you have to do is"]}
-//				,{seq:9, list:["want to come along","looking forward to","wouldn't miss it"]}
-//				,{seq:10, list:["get along with","spit it out","getting out of hand","in a bad mood"]}
-//				]
+		var sentenceList = 
+			[
+				{seq:1, list:["look who's here","a small world","how have you been","changed a bit","say hello to","catch you later","keep in touch"]}
+				,{seq:2, list:["you shouldn't have","give you a ride","don't bother","what friends are for","something smells fishy","just be yourself"]}
+				,{seq:3, list:["what's the weather","I get the feeling","call off","slipped my mind","don't tell me","behind my back","go with the flow"]}
+				,{seq:4, list:["I feel like going","previous engagement","nothing beats","come to think of it","you might as well","postpone it"]}
+				,{seq:5, list:["I pulled some strings","go easy on it","It's not gonna kill you","don't forget to"]}
+				,{seq:6, list:["where were we","look on the bright side","keep me posted"]}
+				,{seq:7, list:["make a reservation","it makes no difference","what do you mean"]}
+				,{seq:8, list:["give me a hand","make excuses","take it out on me","all you have to do is"]}
+				,{seq:9, list:["want to come along","looking forward to","wouldn't miss it"]}
+				,{seq:10, list:["get along with","spit it out","getting out of hand","in a bad mood"]}
+				]
 
 
 		var source = $("#player_template2").html(); 
