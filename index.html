@@ -230,9 +230,10 @@ var agent = navigator.userAgent.toLowerCase();
 	}
 </script>			    
 <br><br>			   
-<p>원리 :</p> 
+<h3>원리 :</h3> 
 <ol>			    
 <li>youtube에서 원하는 동영상 리스트ID를 찾는다. https://www.youtube.com/watch?v=uF8t0zDAJgo&list=<b>UUi7GJNg51C3jgmYTUwqoUXA</b></li>
+<img src="images/1.png" style="width:400px;"/>
 <li>리스트ID를 이용해서 동영상 목록을 추출한다.
 	<ul>
 	<li>youtube api 이용 : https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=[리스트ID]&key=[KEY발급]&maxResults=50</li>
@@ -241,6 +242,7 @@ var agent = navigator.userAgent.toLowerCase();
 	<li>리스트ID에 해당하는 동영상 목록을 txt로 보관한다. (현재 약 70개 txt)</li>
 	</ul>
 </li>
+<img src="images/2.png" style="width:400px;"/>
 <li>동영상 목록 txt파일을 읽어들여서, 동영상 각각의 자막(사용자 입력, 자동생성)을 검색한다. (http://downsub.com 크롤링)
 	<ul> 
 	<li>youtube 사이트 자체를 크롤링하는 것보다 http://downsub.com 사이트를 크롤링 하는 것이 빠르다.</li>
@@ -252,6 +254,10 @@ var agent = navigator.userAgent.toLowerCase();
 	<br>-> 프로젝트 프로토타입을 설계할 때는 복잡한 DB스키마보다 단순한 txt가 개발이 빠르다.</li>
 	</ul>
 </li>
+<img src="images/3.png" style="width:400px;"/>
+<img src="images/4.png" style="width:600px;"/>
+<p>[시작] [종료] [인덱스] [짧은 문장]</p>
+<img src="images/5.png" style="width:600px;"/>
 <li>검색
 	<ul>
 	<li>원하는 자막 텍스트를 검색한다.(정규식 이용)</li>
@@ -259,13 +265,17 @@ var agent = navigator.userAgent.toLowerCase();
 	<li>github.io를 이용하기 위해 *.js를 데이터db로 이용하였다.</li>
 	</ul>
 </li>
+<img src="images/6.png" style="width:600px;"/>
 <li>화면
 	<ul>
 	<li>미리 검색하여 준비된 문장 리스트(좌측)를 선택시 해당하는 js파일을 읽어들여서 출력</li>
-	<li>youtube player는 2개를 화면상 겹쳐놓고 api control을 통하여, 동영상 연속 재생시 끊김이 없도록 함</li>
+	<li>youtube player 2개를 화면상 겹쳐놓고 api control을 통하여, 동영상 연속 재생시 끊김이 없도록 함</li>
+	<li><a href="http://localhost:8080/_deploy/?f=look%20who%27s%20here">시작</a></li>
 	</ul> 
 </li> 
-</ol>			    
+</ol>
+<br>
+			    
 		    </div>
 		</div>
 	</div>
